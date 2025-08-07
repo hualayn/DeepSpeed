@@ -46,9 +46,9 @@ jobs:
     - name: Build DeepSpeed wheel
       run: |
         # 克隆DeepSpeed源码
-        git clone https://github.com/deepspeedai/DeepSpeed.git
-        cd DeepSpeed
-        git checkout v0.17.4  # 指定稳定版本
+        # git clone https://github.com/deepspeedai/DeepSpeed.git
+        # cd DeepSpeed
+        # git checkout v0.17.4  # 指定稳定版本
         
         # 配置CUDA路径
         $env:DS_BUILD_CUDA_EXTRA_CFLAGS = "-I$env:CUDA_PATH\include"
