@@ -35,9 +35,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip setuptools wheel ninja
 
-    - name: Install PyTorch with CUDA 12.1
+    - name: Install PyTorch with CUDA 12.8
       run: |
-        python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+        python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
 
     - name: Install DeepSpeed build dependencies
       run: |
@@ -62,7 +62,7 @@ jobs:
         copy dist\*.whl ..\dist\
 
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: deepspeed-wheel
         path: dist
