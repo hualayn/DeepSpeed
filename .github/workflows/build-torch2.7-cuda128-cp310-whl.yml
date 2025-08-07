@@ -46,9 +46,9 @@ jobs:
     - name: Build DeepSpeed wheel
       run: |
         # 克隆DeepSpeed源码
-        git clone https://github.com/microsoft/DeepSpeed
+        git clone https://github.com/deepspeedai/DeepSpeed.git
         cd DeepSpeed
-        git checkout v0.13.1  # 指定稳定版本
+        git checkout v0.17.4  # 指定稳定版本
         
         # 配置CUDA路径
         $env:DS_BUILD_CUDA_EXTRA_CFLAGS = "-I$env:CUDA_PATH\include"
@@ -58,12 +58,11 @@ jobs:
         python setup.py bdist_wheel
         
         # 移动到工作区
-        mkdir ../dist
-        copy dist\*.whl ..\dist\
+        # mkdir ../dist
+        # copy dist\*.whl ..\dist\
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: deepspeed-wheel
-        path: dist
-        retention-days: 1
+        path: D:/a/DeepSpeed/DeepSpeed/dist
